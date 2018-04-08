@@ -1,0 +1,4 @@
+.px-2 {
+    padding-left: ($spacer-x * .5) !important;
+    padding-right: ($spacer-x * .5) !important;
+  }

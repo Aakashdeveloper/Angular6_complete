@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="card " style="width:400px;margin-left:10%;margin-top:4%"  *ngFor="let movie of movies">
+            <img class="card-img-top img-fluid" src="../assets/covers/{{movie.cover}}.jpg" alt="Card image">
+            <div class="card-body">
+            <h4 class="card-title">{{movie.name}}</h4>
+            <p class="card-text">{{movie.bio}}</p>
+            <a href="#demo{{movie.id}}" class="btn btn-primary" data-toggle="collapse">See Albums</a>
+            <div id="demo{{movie.id}}" class="collapse">
+                <div class="row">
+                    <div class="card col-sm-6" style="width:200px;"  *ngFor="let album of movie.albums">
+                        <img class="card-img-top" src="../assets/albums/{{album.cover}}.jpg" alt="Card image">
+                        <div class="card-body">
+                            <h4 class="card-title">{{album.title}}</h4>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+    </div>
+</div>

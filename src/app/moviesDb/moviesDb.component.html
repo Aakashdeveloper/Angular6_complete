@@ -1,0 +1,42 @@
+<div class="row">
+        <div class="card " style="width:250px;margin-left:10%;margin-top:4%"  *ngFor="let movie of moviesdb">
+                <img class="card-img-top img-fluid" [src]="movie.imageUrl" alt="Card image">
+                <div class="card-body">
+                <h4 class="card-title">{{movie.name}}</h4>
+                <p class="card-text">{{movie.language}}</p>
+                <star-app [rating]="movie.rate"></star-app>
+               
+                <!-- Button to Open the Modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" 
+                [attr.data-target]="'#' + movie._id" >
+                        Details
+                </button>
+                    
+                    <!-- The Modal -->
+                    <div class="modal fade" id="{{movie._id}}">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                    
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                            <h4 class="modal-title">{{movie.name}}</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                    
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <p>{{movie.language}}</p>
+                                <p>{{movie.type}}</p>
+                                
+                            </div>
+                    
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+                    
+                        </div>
+                        </div>
+                    </div>
+        </div>
+    </div>

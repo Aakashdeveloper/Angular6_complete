@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+        </div>
+        <div class="panel-body">
+            <form #form="ngForm" (submit)="submitForm(form)">
+
+                <div class="form-group" [class.has-error]="movies.invalid">
+                    <label class="control-label" for="movies">Movies</label>
+                    <input class="form-control" type="text" placeholder="movies" name="movies"
+                            id="movies" [ngModel]="model.movies" required
+                            (ngModelChange)="moviesToUpper($event)">
+                </div>
+                <div class="form-group" [class.has-error]="language.invalid">
+                    <label for="language" class="control-label">Language</label> 
+                    <input class="form-control" type="text" placeholder="Language" name="language"
+                    id="language" [(ngModel)]="model.language">
+                   
+                </div>
+                <div class="form-group">
+                    <label for="rate" class="control-label">Rate</label> 
+                    <input class="form-control" type="text" placeholder="rating" name="rate"
+                    id="rate" [(ngModel)]="model.rate" >
+                </div>
+                <div class="form-group" [class.has-error]="hastypeError">
+                    <label class="control-label">Movie type</label>
+                    <select class="form-control" name="type" [(ngModel)]="model.type"
+                    (blur)="validateType($event)">
+                       <option value="default">  Select the Type</option>
+                       <option *ngFor="let lang of languages">
+                           {{lang}}
+                      </option>
+                     
+                    </select>
+                    <div class="alert alert-danger" *ngIf="hastypeError">
+                            Select valid value
+                    </div>
+                </div>
+                <div class="form-group" [class.has-error]="img.invalid">
+                    <label for="img" class="control-label">Image Url</label> 
+                    <input class="form-control" type="text" placeholder="img" name="img"
+                    id="img" [(ngModel)]="model.imageUrl">
+                </div>
+                <button class="btn btn-success" type="submit">Submit</button>
+            </form>
+        </div>
+        
+    </div>
+    <h3>Model:{{model | json}}</h3>
+    <h3>Angular:{{form.value | json}}</h3>
+    
+</div>
