@@ -11,5 +11,4 @@ export interface IMovies{
             cover: string,
             price: number
           }
-
 }
